@@ -1,0 +1,12 @@
+---
+- name: iLO and BIOS configuration through RestAPI
+  hosts: all
+  connection: local
+  gather_facts: False
+
+  vars:
+    - bios_revert_default: False
+    - bios_legacy_mode: True
+
+  roles:
+    - ilorest

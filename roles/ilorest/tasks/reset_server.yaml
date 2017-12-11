@@ -1,0 +1,7 @@
+---
+# file: roles/ilorest/tasks/reset_server.yaml
+- name: Reset the server
+  reset_server:
+    ilo_https_url: "https://{{ ilo_ip }}"
+    ilo_user: "{{ ilo_user }}"
+    ilo_pass: "{{ ilo_pass }}"

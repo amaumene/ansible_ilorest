@@ -1,0 +1,7 @@
+---
+# file: roles/ilorest/tasks/bios_revert_default.yaml
+- name: BIOS revert to default
+  bios_revert_default:
+    ilo_https_url: "https://{{ ilo_ip }}"
+    ilo_user: "{{ ilo_user }}"
+    ilo_pass: "{{ ilo_pass }}"

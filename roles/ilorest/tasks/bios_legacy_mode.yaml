@@ -1,0 +1,7 @@
+---
+# file: roles/ilorest/tasks/bios_legacy_mode.yaml
+- name: Set BIOS boot mode to legacy
+  bios_legacy_mode:
+    ilo_https_url: "https://{{ ilo_ip }}"
+    ilo_user: "{{ ilo_user }}"
+    ilo_pass: "{{ ilo_pass }}"

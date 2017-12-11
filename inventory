@@ -1,0 +1,13 @@
+compute00 ilo_ip=10.0.0.1
+compute01 ilo_ip=10.0.0.2
+controller00 ilo_ip=10.0.0.3
+controller01 ilo_ip=10.0.0.4
+controller02 ilo_ip=10.0.0.5
+cephosd00 ilo_ip=10.0.0.6
+cephosd01 ilo_ip=10.0.0.7
+cephosd02 ilo_ip=10.0.0.8
+
+[all:vars]
+ilo_user=username
+ilo_pass=password
+ansible_python_interpreter=python

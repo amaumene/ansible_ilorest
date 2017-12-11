@@ -1,0 +1,12 @@
+---
+# file: roles/ilorest/tasks/main.ym
+
+- include_tasks: bios_revert_default.yaml
+  when: bios_revert_default is defined and
+        bios_revert_default | bool
+
+- include_tasks: bios_legacy_mode.yaml
+  when: bios_legacy_mode is defined and
+        bios_legacy_mode | bool
+
+- include_tasks: reset_server.yaml
