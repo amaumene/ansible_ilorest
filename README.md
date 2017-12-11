@@ -25,7 +25,8 @@ cephosd02 ilo_ip=10.0.0.8
 [all:vars]
 ilo_user=username
 ilo_pass=password
-ansible_python_interpreter=python```
+ansible_python_interpreter=python
+```
 
 ### Playbook
 A example playbook will look like this:
@@ -40,7 +41,8 @@ A example playbook will look like this:
     - bios_legacy_mode: True
 
   roles:
-    - ilorest```
+    - ilorest
+```
 This example will set the boot mode to legacy instead of UEFI but won't reset the defaults parameters.
 
 /!\ The server is restart at the end of the role so the changes are saved.
