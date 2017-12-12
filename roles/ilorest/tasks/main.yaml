@@ -12,4 +12,6 @@
   when: bios_power_profile is defined and
         bios_power_regulator is defined
 
-#- include_tasks: reset_server.yaml
+- include_tasks: reset_server.yaml
+  when: reset_server is defined and
+        reset_server | bool

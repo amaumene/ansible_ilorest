@@ -6,7 +6,10 @@
 
   vars:
     - bios_revert_default: False
-    - bios_legacy_mode: True
+    - bios_boot_mode: LegacyBios
+    - bios_power_profile: MaxPerf
+    - bios_power_regulator: StaticHighPerf
+    - reset_server: False
 
   roles:
     - ilorest
