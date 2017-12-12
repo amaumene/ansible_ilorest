@@ -11,6 +11,13 @@ The role is more a PoC at this stage. I've just implemented the features I neede
 
 ## How-to
 
+### Requirements
+This module has only been tested with Ansible 2.4
+
+You need to install python-ilorest-library:
+``` pip install python-ilorest-library
+```
+
 ### Inventory
 The inventory is describing the IP of the IPMI of the servers. The username and password are passed as variables:
 ```compute00 ilo_ip=10.0.0.1
