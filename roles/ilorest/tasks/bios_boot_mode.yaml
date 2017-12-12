@@ -1,0 +1,8 @@
+---
+# file: roles/ilorest/tasks/bios_boot_mode.yaml
+- name: Set BIOS boot mode
+  bios_boot_mode:
+    ilo_https_url: "https://{{ ilo_ip }}"
+    ilo_user: "{{ ilo_user }}"
+    ilo_pass: "{{ ilo_pass }}"
+    bios_boot_mode: "{{ bios_boot_mode }}"

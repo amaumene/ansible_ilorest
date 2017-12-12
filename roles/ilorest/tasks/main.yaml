@@ -5,8 +5,11 @@
   when: bios_revert_default is defined and
         bios_revert_default | bool
 
-- include_tasks: bios_legacy_mode.yaml
-  when: bios_legacy_mode is defined and
-        bios_legacy_mode | bool
+- include_tasks: bios_boot_mode.yaml
+  when: bios_boot_mode is defined
 
-- include_tasks: reset_server.yaml
+- include_tasks: bios_power_settings.yaml
+  when: bios_power_profile is defined and
+        bios_power_regulator is defined
+
+#- include_tasks: reset_server.yaml

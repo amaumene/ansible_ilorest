@@ -17,24 +17,25 @@
  
 DOCUMENTATION = '''
 ---
-module: bios_legacy_mode
+module: bios_boot_mode
 short_description: This module reverts the bios to default settings
 '''
 
 EXAMPLES = '''
 - name: Bios revert Default
-  bios_legacy_mode:
+  bios_boot_mode:
     ilo_https_url: "https://{{ ilo_ip }}"
+    bios_boot_mode: "LegacyBios|Uefi"
 '''
 
 import sys
 from ansible.module_utils._restobject import RestObject
 
-def bios_legacy_mode(restobj):
+def bios_boot_mode(restobj, bios_boot_mode):
     instances = restobj.search_for_type("Bios.")
 
     for instance in instances:
-        body = {"BootMode": "LegacyBios"}
+        body = {"BootMode": bios_boot_mode}
         response = restobj.rest_put(instance["href"], body)
         restobj.error_handler(response)
 
@@ -44,10 +45,11 @@ from ansible.module_utils.basic import *
 def main():
     module = AnsibleModule(
         argument_spec = dict(
-            state     = dict(default='present', choices=['present', 'absent']),
-            ilo_https_url    = dict(required=True, type='str'),
-            ilo_pass  = dict(required=True, type='str'),
-            ilo_user  = dict(required=True, type='str')
+            state         = dict(default='present', choices=['present', 'absent']),
+            bios_boot_mode      = dict(required=True, type='str'),
+            ilo_https_url = dict(required=True, type='str'),
+            ilo_pass      = dict(required=True, type='str'),
+            ilo_user      = dict(required=True, type='str')
         )
     )
 
@@ -67,7 +69,7 @@ def main():
         sys.exit()
     except Exception, excp:
         raise excp
-    bios_legacy_mode(REST_OBJ)
+    bios_boot_mode(REST_OBJ, module.params['bios_boot_mode'])
     module.exit_json(changed=True)
 
 if __name__ == "__main__":
