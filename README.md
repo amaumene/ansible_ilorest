@@ -15,7 +15,7 @@ The role is more a PoC at this stage. I've just implemented the features I neede
 This module has only been tested with Ansible 2.4
 
 You need to install python-ilorest-library:
-``` pip install python-ilorest-library
+```pip install python-ilorest-library
 ```
 
 ### Inventory
