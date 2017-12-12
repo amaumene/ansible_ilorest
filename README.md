@@ -19,7 +19,8 @@ You need to install python-ilorest-library:
 
 ### Inventory
 The inventory is describing the IP of the IPMI of the servers. The username and password are passed as variables:
-```compute00 ilo_ip=10.0.0.1
+```
+compute00 ilo_ip=10.0.0.1
 compute01 ilo_ip=10.0.0.2
 controller00 ilo_ip=10.0.0.3
 controller01 ilo_ip=10.0.0.4
@@ -36,7 +37,8 @@ ansible_python_interpreter=python
 
 ### Playbook
 A example playbook will look like this:
-```---
+```
+---
 - name: iLO and BIOS configuration through RestAPI
   hosts: all
   connection: local
@@ -53,5 +55,3 @@ A example playbook will look like this:
     - ilorest
 ```
 This example will set the boot mode to legacy instead of UEFI but won't reset the defaults parameters.
-
-/!\ The server is restart at the end of the role so the changes are saved.
