@@ -1,0 +1,9 @@
+---
+# file: roles/ilorest/tasks/bios_power_settings.yaml
+- name: Set BIOS power settings
+  bios_power_settings:
+    ilo_https_url: "https://{{ ilo_ip }}"
+    ilo_user: "{{ ilo_user }}"
+    ilo_pass: "{{ ilo_pass }}"
+    bios_power_profile: "{{ bios_power_profile }}"
+    bios_power_regulator: "{{ bios_power_regulator }}"
